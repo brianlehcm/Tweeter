@@ -15,15 +15,15 @@ extension String {
     return String( Array(self).prefix(upTo: n) )
   }
   
-  func checkNonWhiteSpaceCharacterMax() -> (Bool, String) {
+  func checkNonWhiteSpaceCharacterMax(len: Int) -> (Bool, String) {
     let arrStrs = self.components(separatedBy: " ")
     let counts:[Int] = arrStrs.map({ $0.count })
     if let maxLen = counts.max() {
       var str = ""
-      if let find = arrStrs.filter({ $0.count > 50 }).first {
+      if let find = arrStrs.filter({ $0.count > len }).first {
         str = find
       }
-      return (maxLen > 50, str)
+      return (maxLen > len, str)
     }
     return (false, "")
   }

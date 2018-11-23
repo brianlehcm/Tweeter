@@ -18,8 +18,25 @@ class TweeterTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+  
+    func testErrorNonSpace() {
+      let str1 = "ThequickbrownfoxjumpsoverthelazydogThequickbrownfoxjumpsoverthelazydog"
+      let (check1, _) = str1.checkNonWhiteSpaceCharacterMax(len: 50)
+      print(check1)
+      XCTAssert(check1, "Case 1: String contain span of nonwhite space character > 50")
+      
+      let str2 = "ThequickbrownfoxjumpsoverthelazydogThequickbrownfoxjumpsoverthelazydog asdjaska sadjkl"
+      let (check2, _) = str2.checkNonWhiteSpaceCharacterMax(len: 50)
+      print(check2)
+      XCTAssert(check2, "Case 2: String contain span of nonwhite space character > 50")
+    }
+  
+    func testOnTweet() {
+      let str = "The quick brown fox jumps over the lazy dog"
+      XCTAssertTrue(str.count <= 50, "More tweets")
+    }
 
-    func testExample() {
+    func testSubTweets() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
       

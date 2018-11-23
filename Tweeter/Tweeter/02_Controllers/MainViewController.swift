@@ -84,7 +84,7 @@ extension MainViewController {
   
   @IBAction func tweetPressed(_ sender: UIButton) {
     let strTweet = tweetInputView.messageTxt.text!
-    let (checkMax, strErrorMax) = strTweet.checkNonWhiteSpaceCharacterMax()
+    let (checkMax, strErrorMax) = strTweet.checkNonWhiteSpaceCharacterMax(len: maxLenTweet)
     if checkMax {
       //Error input string > maxLenTweet characters
       tweetInputView.errorLabel.text = "String contain span of nonwhite space character > \(maxLenTweet)"
