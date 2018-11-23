@@ -102,8 +102,7 @@ extension MainViewController {
       resetInputView()
       view.endEditing(true)
       
-      let arrStrs:[String] = strTweet.components(separatedBy: " ")
-      if arrStrs.count == 1 { //Only 1 tweet
+      if strTweet.count <= 50 { //Only 1 tweet
         let model = TweModel(fromMessage: strTweet)
         //Reload data to tableview
         appendTweetsData(data: [model])
